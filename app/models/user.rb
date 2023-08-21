@@ -11,4 +11,5 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :age_id, :gender_id, numericality: { other_than: 1, message: "can't be blank" }
 
+  has_many :opinions
 end
