@@ -1,24 +1,46 @@
-# README
+## アプリケーション名
+Investment Beginner
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリケーション概要
+実際の米国銘柄を用いて意見を交換したり、自身の登録銘柄の損益を確認したりできる投資初心者向けのアプリです。
 
-Things you may want to cover:
+## URL
 
-* Ruby version
+## テスト用アカウント
+* Basic認証パスワード：
+* Basic認証ID：
+* メールアドレス：
+* パスワード：
 
-* System dependencies
+## 利用方法
+#### 意見投稿
+#### 登録銘柄の損益の確認
 
-* Configuration
+## アプリケーションを作成した背景
+2024年より新NISAが始まります。しかし日本では現在約6割の人が投資未経験だと言われています。
+投資を行わない主な理由としては「投資は怖いものである」というイメージが先行していることと、
+誰に相談したらいいかわからないというこの2点が挙げられることが多いです。
+そのため実際の米国株を用いて損益を体験でき、また匿名で意見交換をする場を作りたいと考えてこのアプリを開発しました。
 
-* Database creation
+## 洗い出した要件
 
-* Database initialization
+## 実装した機能についての画像やGIFおよびその説明
 
-* How to run the test suite
+## 実装予定の機能
 
-* Services (job queues, cache servers, search engines, etc.)
+## データベース設計
 
-* Deployment instructions
+## 画面遷移図
 
-* ...
+## 開発環境
+
+## ローカルでの操作方法
+* フロントエンド
+* バックエンド
+* インフラ
+* テスト
+* テキストエディタ
+* タスク管理
+
+
+## 工夫したポイント

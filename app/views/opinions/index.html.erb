@@ -1,0 +1,16 @@
+<%= render "shared/header" %>
+
+<div class ="main">
+  <div class="title-contents">
+    <h2 class="servise-title">投資の体験アプリ</h2>
+    <p>実際の米国銘柄に対してみんなで意見交換をしましょう！</p>
+    <div class="search-btn">株価を確認する</div>
+  </div>
+</div>
+
+<h1>Stock Prices</h1>
+<% @stock_data.each do |symbol, data| %>
+  <h2><%= symbol %> Stock</h2>
+  <p>Latest Close Price: <%= data[:latest_close_price] %></p>
+  <p>Latest Date: <%= data[:latest_date] %></p>
+<% end %>

@@ -1,0 +1,9 @@
+<%= form_with model: @opinion, url:opinions_path, local: true do |f| %>
+  <div class="article-box">
+    あなたの意見を投稿しましょう！
+    <%#= f.text_field :title, class:"title", placeholder:"タイトル" %>
+    <%= f.collection_select(:privacy_id, Privacy.all, :id, :name, {}, {class:"genre-select"}) %>
+    <%= f.text_area :theory, class:"text", placeholder:"テキスト" %>
+    <%= f.submit "投稿する" ,class:"btn" %>
+  </div>
+<% end %>
