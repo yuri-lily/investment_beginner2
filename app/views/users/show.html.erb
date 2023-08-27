@@ -1,0 +1,11 @@
+<%= render "shared/header" %>
+
+<div class="contents row">
+  <p><%= @name %>さんの投稿一覧</p>
+  <% @opinions.each do |opinion| %>
+      <p><%= opinion.brand %></p>
+      <p><%= opinion.theory %></p>
+      <p><%= opinion.created_at %></p>
+      <%= link_to '詳細を見る', opinion_path(opinion) %>
+  <% end %>
+</div>

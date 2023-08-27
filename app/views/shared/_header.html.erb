@@ -2,10 +2,11 @@
 
 <header class='top-page-header'>
   <div class='header-item'>
-    <p class='application-name'>Inventment Beginner</p>
+    <%= link_to 'Inventment Beginner', opinions_path %>
+    <%#p class='application-name'>Inventment Beginner</p><#%>
     <ul class='lists-right'>
       <% if user_signed_in? %>
-        <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
+        <li><%= link_to current_user.name, user_path(current_user), class: "user-name" %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
       <% else %>
         <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>

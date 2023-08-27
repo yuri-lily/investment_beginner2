@@ -1,0 +1,7 @@
+<%= form_with model: @opinion, url:opinions_path, local: true do |f| %>
+    <%#= f.text_field :title, class:"title", placeholder:"タイトル" %>
+    <%= f.text_field :brand, class:"brand", placeholder:"銘柄名" %>
+    <%= f.collection_select(:privacy_id, Privacy.all, :id, :name, {}, {class:"genre-select"}) %>
+    <%= f.text_area :theory, class:"theory", placeholder:"テキスト" %>
+    <%= f.submit "投稿する" ,class:"btn" %>
+<% end %>

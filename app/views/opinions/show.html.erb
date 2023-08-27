@@ -1,0 +1,17 @@
+
+<p><%= @opinion.brand %></p>
+<p><%= @opinion.theory %></p>
+<p><%= @opinion.user.name %></p>
+<p><%= @opinion.created_at %></p>
+<%= link_to '編集する', edit_opinion_path(@opinion) %>
+<%= link_to '削除する', opinion_path(@opinion), method: :delete %>
+
+<%= form_with model: [@opinion, @comment], local: true do |f| %>
+  <div class="field">
+    <%= f.label :content, "コメント" %><br />
+    <%= f.text_area :content, id:"comment_content" %>
+    </div>
+  <div class="actions">
+    <%= f.submit "送信する", class: :form__btn  %>
+  </div>
+<% end %>
