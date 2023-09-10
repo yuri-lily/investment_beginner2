@@ -1,21 +1,22 @@
 <%= render "shared/header" %>
-<div>株価を検索しましょう！</div>
 
-<%= form_tag search_stock_data_path, method: :post do %>
-  <div class="search_form">
-  <%= text_field_tag :symbol, nil, placeholder: 'APPL,MSFT,AMZN' %>
-  <%= submit_tag '検索' %>
-  </div>
-<% end %>
+<div class="search_content">
+  <h2 class='table'>株価を検索しましょう！</h2>
+  <%= form_tag search_stock_data_path, method: :post do %>
+    <div class="search_form">
+    <%= text_field_tag :symbol, nil, placeholder: 'APPL,MSFT,AMZN' %>
+    <%= submit_tag '検索' %>
+    </div>
+  <% end %>
 
-<!-- 株価情報を表示するセクション -->
-<% if @stock_data %>
-  <h2><%= @symbol %>の終値</h2>
-  <p>Date: <%= @stock_data[:latest_date] %></p>
-  <p>Close Price: <%= @stock_data[:latest_close_price] %></p>
-<% else %>
-  <p>No stock data available for the entered symbol.</p>
-<% end %>
+  <% if @stock_data %>
+   <h2><%= @symbol %>の終値</h2>
+   <p>Date: <%= @stock_data[:latest_date] %></p>
+   <p>Close Price: <%= @stock_data[:latest_close_price] %></p>
+  <% else %>
+   <p>No stock data available for the entered symbol.</p>
+  <% end %>
+</div>
 
 <div class="opinion_form">
     <%= form_with model: @opinion, local: true do |f| %>

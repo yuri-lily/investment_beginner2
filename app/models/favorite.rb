@@ -1,6 +1,8 @@
 class Favorite < ApplicationRecord
   belongs_to :user
-  validates :symbol, :registered_price, presence: true
+  with_options presence: true do
+    validates :symbol, format: { with: /\A[a-zA-Z]{1,4}\z/, message: "is invalid.Please enter an alphabet of four letters or less"}
+  end
 
   def update_current_price
     api_key = ENV["ALPHA_VANTAGE_API_KEY"]
@@ -15,9 +17,7 @@ class Favorite < ApplicationRecord
     Rails.logger.error("Error fetching data for symbol #{symbol}: #{e.message}")
   end
 
-  # 損益を計算するメソッド
   def calculate_profit_loss
-    # registered_price（登録時の価格）とprice（現在の価格）の差を返す
     if price && registered_price
       (price - registered_price).round(2)
     else

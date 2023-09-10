@@ -56,9 +56,10 @@
     <% elsif current_user == @user && @my_favorite == nil %>
       <div class="favorite_bar">
         <%= form_with model: [@user, @favorite], local: true do |f| %>
+        <%= render 'shared/error_messages', model: f.object %>
         <div class="favorite_form">
-          <%= f.text_field :symbol, class: "favoritr_symbol" %>
-          <%= f.submit "お気に入り登録する", class: :form__btn  %>
+          <%= f.text_field :symbol, placeholder:"銘柄コード", class: "favorite_symbol" %>
+          <%= f.submit "お気に入り登録する", class: "favorite__btn"  %>
         </div>
         <% end %>
       </div>

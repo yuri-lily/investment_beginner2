@@ -9,7 +9,8 @@
 }
 
 .comment_bar {
-  padding: 50px 100px;
+  padding: 20px 100px;
+  width: 100%;
 }
 
 .comment_form {
@@ -19,7 +20,8 @@
 }
 
 .comment_content {
-  width: 100%;
+  width: 50vw;
+  height: 35px;
 }
 
 .comments {

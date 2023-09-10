@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2023_09_03_084949) do
 
   create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "symbol", null: false
-    t.decimal "registered_price", precision: 10, scale: 2, null: false
+    t.decimal "registered_price", precision: 10, scale: 2
     t.decimal "price", precision: 10, scale: 2
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

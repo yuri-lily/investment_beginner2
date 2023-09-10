@@ -1,5 +1,8 @@
-.opinion_form {
-  margin-top: 40px;
-  width: 65%;
+.search_content{
   padding: 50px 100px;
-}
+} 
+
+.opinion_form {
+  width: 65%;
+  padding: 20px 100px;
+} 
