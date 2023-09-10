@@ -2,8 +2,9 @@
 
 <header class='top-page-header'>
   <div class='header-item'>
-    <%= link_to 'Inventment Beginner', opinions_path %>
-    <%#p class='application-name'>Inventment Beginner</p><#%>
+    <div class="header-logo">
+    <%= link_to image_tag("logo8.png", class:"logo"), "/" %>
+    </div>
     <ul class='lists-right'>
       <% if user_signed_in? %>
         <li><%= link_to current_user.name, user_path(current_user), class: "user-name" %></li>

@@ -1,11 +1,88 @@
 <%= render "shared/header" %>
 
-<div class="contents row">
-  <p><%= @name %>さんの投稿一覧</p>
-  <% @opinions.each do |opinion| %>
-      <p><%= opinion.brand %></p>
-      <p><%= opinion.theory %></p>
-      <p><%= opinion.created_at %></p>
-      <%= link_to '詳細を見る', opinion_path(opinion) %>
-  <% end %>
+<div class="main">
+
+  <div class="user_data">
+    <p class="user_name" ><%= @user.name %>さんの情報</p>
+     <table class="table">
+        <tbody>
+          <tr>
+            <th class="table__col1">名前</th>
+            <td class="table__col2"><%= @user.name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">年齢</th>
+            <td class="table__col2"><%= @user.age.name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">性別</th>
+            <td class="table__col2"><%= @user.gender.name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">プロフィール</th>
+            <td class="table__col2"><%= @user.profile %></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+  <div class="user_favorite">
+    <% if current_user == @user && @my_favorite != nil %>  
+      <p class="user_name" ><%= @user.name %>さんのお気に入り銘柄</p>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="table__col1">銘柄名</th>
+            <td class="table__col2"><%= @my_favorite.symbol %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">登録日</th>
+            <td class="table__col2"><%= @registered_date.strftime('%Y/%m/%d') %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">登録日の株価</th>
+            <td class="table__col2"><%= @registered_price %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">直近の株価</th>
+            <td class="table__col2"><%= @current_price %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">損益</th>
+            <td class="table__col2"><%= @profit_loss %></td>
+          </tr>
+        </tbody>
+      </table>
+    <% elsif current_user == @user && @my_favorite == nil %>
+      <div class="favorite_bar">
+        <%= form_with model: [@user, @favorite], local: true do |f| %>
+        <div class="favorite_form">
+          <%= f.text_field :symbol, class: "favoritr_symbol" %>
+          <%= f.submit "お気に入り登録する", class: :form__btn  %>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="user_opinions">
+    <p class="user_name"><%= @user.name %>さんの投稿一覧</p>
+      <% if current_user != @user %>
+        <% @show_opinions.each do |show_opinion| %>
+        <p class='opinion_brand'><%= show_opinion.brand %></p>
+        <p><%= show_opinion.theory %></p>
+        <p><%= show_opinion.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
+        <%= link_to '詳細を見る', opinion_path(show_opinion) %>
+        <% end %>
+      <% else %>
+        <% @opinions.each do |opinion| %>
+        <p class='opinion_brand'><%= opinion.brand %></p>
+        <p><%= opinion.theory %></p>
+        <p><%= opinion.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
+        <%= link_to '詳細を見る', opinion_path(opinion) %>
+        <% end %>
+      <% end %>
+  </div>
 </div>
+
+<%= render "shared/footer" %>

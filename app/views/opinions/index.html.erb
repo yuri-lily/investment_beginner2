@@ -1,25 +1,58 @@
 <%= render "shared/header" %>
 
-<div class ="main">
+<div class ="top">
   <div class="title-contents">
     <h2 class="servise-title">投資の体験アプリ</h2>
     <p>実際の米国銘柄に対してみんなで意見交換をしましょう！</p>
-    <div class="search-btn">株価を確認する</div>
-    <%= link_to '株価を確認する', new_opinion_path, class: "new_opinion" %>
+    <div class="search_btn">
+    <%= link_to image_tag("search5.png", class:"search_icon"), new_opinion_path %>
+    </div>
   </div>
 </div>
 
-<h1>Stock Prices</h1>
-<% @stock_data.each do |symbol, data| %>
-  <h2><%= symbol %> Stock</h2>
-  <p>Latest Close Price: <%= data[:latest_close_price] %></p>
-  <p>Latest Date: <%= data[:latest_date] %></p>
-<% end %>
+<div class="stock_datas">
+  <div class="stock_data">
+    <%= image_tag "apple3.png", class:"brand_image" %>
+    <p class="stock_barand">Apple</p>
+    <p>現在値: <%= @aapl_data[:latest_close_price] %></p>
+    <% if @aapl_data[:latest_date] != "Data not available" %>
+      <p>取得日時: <%= @aapl_data[:latest_date].strftime("%Y-%m-%d %H:%M:%S") %></p>
+    <% else %>
+      <p>取得日時: no data</p>
+    <% end %>
+  </div>
+  <div class="stock_data">
+    <%= image_tag "microsoft.png", class:"brand_image" %>
+    <p class="stock_barand">Microsoft</p>
+    <p>現在値: <%= @msft_data[:latest_close_price] %></p>
+    <% if @msft_data[:latest_date] != "Data not available" %>
+      <p>取得日時: <%= @msft_data[:latest_date].strftime("%Y-%m-%d %H:%M:%S") %></p>
+    <% else %>
+      <p>取得日時: no data</p>
+    <% end %>
+  </div>
+  <div class="stock_data">
+    <%= image_tag "amazon.png", class:"brand_image" %>
+    <p class="stock_barand">Amazon</p>
+    <p>現在値: <%= @amzn_data[:latest_close_price] %></p>
+    <% if @amzn_data[:latest_date] != "Data not available" %>
+      <p>取得日時: <%= @amzn_data[:latest_date].strftime("%Y-%m-%d %H:%M:%S") %></p>
+    <% else %>
+      <p>取得日時: no data</p>
+    <% end %>
+  </div>
+</div>
 
-<h1>最近の投稿</h1>
+<div class='opinions_all'>
+<h2 class='table'>最近の投稿</h2>
 <% @opinions.each do |opinion| %>
-  <p><%= opinion.brand %></p>
+  <p class='opinion_brand'><%= opinion.brand %></p>
   <p><%= opinion.theory %></p>
-  <p><%= opinion.user.name %></p>
-  <p><%= opinion.created_at %></p>
+  <div class='opinion_detail'>
+  <p class='contributor'>投稿者:<%=link_to opinion.user.name, user_path(opinion.user) %></p>
+  <p>投稿時間:<%= opinion.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
+  </div>
 <% end %>
+</div>
+
+<%= render "shared/footer" %>

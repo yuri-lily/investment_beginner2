@@ -1,0 +1,5 @@
+<%= form_tag search_stock_data_path, method: :post do %>
+  <%= label_tag :symbol, 'Enter Stock Symbol:' %>
+  <%= text_field_tag :symbol, nil, placeholder: 'APPL,MSFT,AMZN' %>
+  <%= submit_tag '検索' %>
+<% end %>

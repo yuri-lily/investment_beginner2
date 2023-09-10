@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+.user_data {
+  padding: 50px 100px;
+}
+
+
+.user_name {
+  font-weight: bolder;
+  margin-bottom: 40px;
+}
+
+.table__col1 {
+  width: 150px;
+}
+
+.user_favorite {
+  padding: 30px 100px;
+}
+
+.user_opinions {
+  margin-top: 40px;
+  width: 100vw;
+  padding: 50px 100px;
+  background-color: #E9E9F3;
+}
+
+.opinion_brand {
+  margin-top: 25px;
+}

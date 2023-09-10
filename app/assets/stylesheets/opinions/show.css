@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+.the_opinion {
+  margin-top: 40px;
+  width: 100vw;
+  padding: 50px 100px;
+}
+
+.comment_bar {
+  padding: 50px 100px;
+}
+
+.comment_form {
+  width: 50vw;
+  height: 5vh;
+  display: flex;
+}
+
+.comment_content {
+  width: 100%;
+}
+
+.comments {
+  margin-top: 40px;
+  width: 100vw;
+  padding: 50px 100px;
+  background-color: #E9E9F3;
+}
+
+.comment_main {
+  padding-top: 15px;
+}
+
+.comment_destroy {
+  margin-right: 15px;
+}
