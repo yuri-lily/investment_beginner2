@@ -1,0 +1,15 @@
+<%= render "shared/header" %>
+
+<div class="form">
+  <div class="edit_container">
+
+    <%= form_with model: @opinion, local: true do |f| %>
+      <h2 class='table'>編集フォーム</h2>
+      <%= f.text_field :brand, class:"opinion_form_field", placeholder:"銘柄名" %>
+      <%= f.collection_select(:privacy_id, Privacy.all, :id, :name, {}, {class:"opinion_form_field"}) %>
+      <%= f.text_area :theory, class:"opinion_form_field", placeholder:"テキスト" %>
+      <%= f.submit "投稿する" ,class:"btn" %></p>
+    <% end %>
+
+  </div>
+</div>

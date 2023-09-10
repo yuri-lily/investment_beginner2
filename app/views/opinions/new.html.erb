@@ -1,9 +1,45 @@
-<%= form_with model: @opinion, url:opinions_path, local: true do |f| %>
-  <div class="article-box">
-    あなたの意見を投稿しましょう！
-    <%#= f.text_field :title, class:"title", placeholder:"タイトル" %>
-    <%= f.collection_select(:privacy_id, Privacy.all, :id, :name, {}, {class:"genre-select"}) %>
-    <%= f.text_area :theory, class:"text", placeholder:"テキスト" %>
-    <%= f.submit "投稿する" ,class:"btn" %>
+<%= render "shared/header" %>
+<div>株価を検索しましょう！</div>
+
+<%= form_tag search_stock_data_path, method: :post do %>
+  <div class="search_form">
+  <%= text_field_tag :symbol, nil, placeholder: 'APPL,MSFT,AMZN' %>
+  <%= submit_tag '検索' %>
   </div>
 <% end %>
+
+<!-- 株価情報を表示するセクション -->
+<% if @stock_data %>
+  <h2><%= @symbol %>の終値</h2>
+  <p>Date: <%= @stock_data[:latest_date] %></p>
+  <p>Close Price: <%= @stock_data[:latest_close_price] %></p>
+<% else %>
+  <p>No stock data available for the entered symbol.</p>
+<% end %>
+
+<div class="opinion_form">
+    <%= form_with model: @opinion, local: true do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
+      <h2 class='table'>投稿フォーム</h2>
+      <%= f.text_field :brand, class:"opinion_form_field", placeholder:"銘柄名" %>
+      <%= f.collection_select(:privacy_id, Privacy.all, :id, :name, {}, {class:"opinion_form_field"}) %>
+      <%= f.text_area :theory, class:"opinion_form_field", placeholder:"テキスト" %>
+      <%= f.submit "投稿する" ,class:"btn" %></p>
+    <% end %>
+</div>
+
+  
+
+<div class='opinions_all'>
+  <h2 class='table'>関連の投稿</h2>
+    <% @opinions.each do |opinion| %>
+      <p class='opinion_brand'><%= opinion.brand %></p>
+      <p><%= opinion.theory %></p>
+      <div class='opinion_detail'>
+        <p class='contributor'>投稿者:<%=link_to opinion.user.name, user_path(opinion.user) %></p>
+        <p>投稿時間:<%= opinion.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
+      </div>
+    <% end %>
+</div>
+
+<%= render "shared/footer" %>

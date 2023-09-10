@@ -1,9 +1,9 @@
-a {
-  text-decoration: none;
+* {
+  box-sizing: border-box;
 }
 
-.main {
-  background: #f8f8f8;
+a {
+  text-decoration: none;
 }
 
 /* 画面上部の「人生を変えるフリマアプリ」帯部分 */
@@ -23,7 +23,64 @@ a {
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
 }
 
-.search-btn {
-  background-color: #d1e8ff;
-  padding: 20px 20px;
+.new_opinion {
+  background-color: #D1D3E2;
+  color: #E9E9F3;
+  height: 100px;
+  width: 300px;
+  opacity: 80%;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.search_btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.search_icon {
+  height: 65%;
+  opacity: 85%;
+}
+
+.stock_datas {
+  margin-top: 40px;
+  height: 500px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.stock_data {
+  text-align: center;
+}
+
+.stock_barand {
+  font-size: 20px;
+  font-weight: bolder;
+}
+.opinions_all {
+  margin-top: 40px;
+  width: 100vw;
+  padding: 50px 100px;
+  background-color: #E9E9F3;
+}
+
+.table {
+  margin-bottom: 25px;
+}
+
+.opinion_brand {
+  font-weight: bolder;
+}
+
+.opinion_detail {
+  display: flex;
+}
+
+.contributor {
+  margin-right: 15px;
 }

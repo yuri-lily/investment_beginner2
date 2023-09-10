@@ -1,0 +1,27 @@
+.form {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 800px;
+}
+
+.container {
+  padding: 80px;
+  margin-top: 10%;
+  background-color: #F2F4F7;
+}
+
+.field {
+  width: 100%;
+}
+
+.login_signup_field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.login_signup_btn {
+  margin-top: 30px;
+}
