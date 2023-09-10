@@ -4,7 +4,7 @@
   <h2 class='table'>株価を検索しましょう！</h2>
   <%= form_tag search_stock_data_path, method: :post do %>
     <div class="search_form">
-    <%= text_field_tag :symbol, nil, placeholder: 'APPL,MSFT,AMZN' %>
+    <%= text_field_tag :symbol, nil, placeholder: 'AAPL,MSFT,AMZN' %>
     <%= submit_tag '検索' %>
     </div>
   <% end %>
