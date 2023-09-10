@@ -7,8 +7,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @favorite = Favorite.new
-    @opinions = @user.opinions
-    @show_opinions =  @opinions.where(privacy_id: 2)
+    @opinions = @user.opinions.order('created_at DESC')
+    @show_opinions =  @opinions.where(privacy_id: 2).order('created_at DESC')
     @my_favorite = @user.favorite
     
     if @my_favorite.present?

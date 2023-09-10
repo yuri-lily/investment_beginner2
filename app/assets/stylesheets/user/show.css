@@ -20,6 +20,21 @@
   padding: 30px 100px;
 }
 
+.favorite_form {
+  width: 50vw;
+  height: 5vh;
+  display: flex;
+}
+
+.favorite_symbol {
+  width: 250px;
+  height: 100%;
+}
+
+.favorite_bar {
+  width: 100%;
+}
+
 .user_opinions {
   margin-top: 40px;
   width: 100vw;

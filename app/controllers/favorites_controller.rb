@@ -9,8 +9,8 @@ class FavoritesController < ApplicationController
     if @favorite.save
       redirect_to user_path(@user), notice: 'Favorite was successfully created.'
     else
-      # 保存に失敗した場合の処理（たとえば、エラーメッセージを表示するなど）
-      redirect_to user_path(@user), alert: 'There was an error saving your favorite.'
+      @opinions = @user.opinions
+      render 'users/show'
     end
   end
 
@@ -27,7 +27,6 @@ class FavoritesController < ApplicationController
     response = HTTParty.get(url)
     data = JSON.parse(response.body)
     
-    # ALPHA_VANTAGEの応答から正確な株価の情報を抽出する必要があります。
     data["Global Quote"]["05. price"].to_f
   rescue StandardError => e
     Rails.logger.error("Error fetching data for symbol #{symbol}: #{e.message}")

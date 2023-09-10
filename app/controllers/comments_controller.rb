@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
       redirect_to opinion_path(@comment.opinion)
     else
       @opinion = @comment.opinion
-      @comments = @opinion.comments
+      @comments = @opinion.comments.order('created_at DESC')
       render 'opinions/show'
     end
   end
